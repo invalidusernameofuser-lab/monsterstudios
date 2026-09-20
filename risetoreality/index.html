@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaving MonsterStudios</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(124, 92, 246, .16), transparent 35%),
+                #07070a;
+            color: white;
+            font-family: Inter, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 45px 45px;
+            pointer-events: none;
+        }
+
+        .box {
+            width: min(560px, 90%);
+            padding: 50px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,.09);
+            border-radius: 26px;
+            background: rgba(17,17,24,.75);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 25px 80px rgba(0,0,0,.4);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            box-shadow: 0 0 30px rgba(124,92,246,.35);
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #92929f;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .loader {
+            width: 46px;
+            height: 46px;
+            margin: 30px auto 20px;
+            border: 4px solid rgba(255,255,255,.1);
+            border-top-color: #8b5cf6;
+            border-right-color: #6366f1;
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+        }
+
+        .count {
+            color: #a78bfa;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #555562;
+            font-size: 12px;
+        }
+
+        .footer span {
+            color: #8b5cf6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <div class="logo">
+            <div class="logo-icon">M</div>
+            <span>MonsterStudios</span>
+        </div>
+
+        <h1>Taking you somewhere new...</h1>
+
+        <p>
+            You're being redirected to RiseToReality.
+        </p>
+
+        <div class="loader"></div>
+
+        <div class="count">
+            Redirecting in <span id="count">3</span>...
+        </div>
+
+        <div class="footer">
+            Powered by <span>MonsterStudios</span>
+        </div>
+
+    </div>
+
+    <script>
+        let seconds = 3;
+        const count = document.getElementById("count");
+
+        const timer = setInterval(() => {
+            seconds--;
+            count.textContent = seconds;
+
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = "https://risetoreality.site.je/";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
